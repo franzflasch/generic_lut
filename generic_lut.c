@@ -27,14 +27,14 @@ int16_t lut_lookup(lut_td* lut, int16_t input, int16_t *result, int16_t len)
 
     for (i = 0; i < len; i++)
     {
-        /* check if input is less then lowest value in lut */
+        /* check if input is less than lowest value in lut */
         if(input < lut[0].x)
         {
             *result = lut[0].y;
             break;
         }
         
-        /* check if input higher then highest value in lut */
+        /* check if input higher than highest value in lut */
         if(input > lut[len-1].x)
         {
             *result = lut[len-1].y;
@@ -47,7 +47,7 @@ int16_t lut_lookup(lut_td* lut, int16_t input, int16_t *result, int16_t len)
             *result = lut[i].y;
             break;
         }
-        /* check if in between two values and interpolate */
+        /* check if input is inbetween two values and interpolate */
         else if((input < lut[i+1].x) && (input > lut[i].x))
         {
             int16_t diffx = input - lut[i].x;
